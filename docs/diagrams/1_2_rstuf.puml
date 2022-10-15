@@ -1,5 +1,6 @@
 @startuml Context
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+!include ./C4-PlantUML/C4_Container.puml
 
 AddRelTag("validate", $textColor="orange", $lineColor="Blue", $lineStyle = DashedLine())
 AddRelTag("download", $textColor="orange", $lineColor="Blue")

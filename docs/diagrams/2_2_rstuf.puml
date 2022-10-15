@@ -1,9 +1,5 @@
 @startuml General View (Container level)
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
-
-!define osaPuml https://raw.githubusercontent.com/Crashedmind/PlantUML-opensecurityarchitecture2-icons/master
-!include osaPuml/Common.puml
-!include osaPuml/User/all.puml
+!include ./C4-PlantUML/C4_Container.puml
 
 !include <office/Servers/file_server>
 !include <office/Servers/application_server>
@@ -17,9 +13,6 @@
 !include <office/Security/lock_with_key_security>
 !include <office/Concepts/download>
 
-
-AddPersonTag("admin", $sprite="osa_user_audit,color=yellow", $legendSprite="osa_user_audit,scale=0.25,color=yellow", $legendText="Repository Admins", $bgColor=Gray)
-AddPersonTag("user", $sprite="osa_user_green_developer", $legendSprite="osa_user_green_developer,scale=0.25,color=yellow", $legendText="Repository Users", $bgColor=Gray)
 
 AddContainerTag("webui", $sprite="application_server", $legendText="Web UI Interface", $bgColor=Gray)
 AddContainerTag("key_service", $sprite="lock_with_key_security", $legendText="Key Service", $bgColor=Gray)
@@ -37,8 +30,8 @@ AddRelTag("bowser", $textColor="$ARROW_COLOR", $lineColor="$ARROW_COLOR", $sprit
 AddRelTag("download", $textColor="Green", $lineColor="$ARROW_COLOR")
 AddRelTag("share", $textColor="orange", $lineColor="grey", $lineStyle = DashedLine())
 
-Person(administration_user, "Admin", $tags="admin") #Grey
-Person(repository_user, "User", $tags="user")
+Person(administration_user, "Admin") #Grey
+Person(repository_user, "User")
 
 System_Boundary(build_systems, "CD/Build Systems") {
     System_Boundary(rstuf, "Repository Service for TUF ") {

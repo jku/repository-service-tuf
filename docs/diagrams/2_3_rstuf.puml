@@ -1,9 +1,6 @@
 @startuml General View (Container level)
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
-!define osaPuml https://raw.githubusercontent.com/Crashedmind/PlantUML-opensecurityarchitecture2-icons/master
-!include osaPuml/Common.puml
-!include osaPuml/User/all.puml
+!include ./C4-PlantUML/C4_Container.puml
 
 !include <office/Servers/file_server>
 !include <office/Servers/application_server>
@@ -17,10 +14,6 @@
 !include <office/Security/lock_with_key_security>
 !include <office/Concepts/download>
 !include <office/Servers/cluster_server>
-
-AddPersonTag("project_mantainers", $sprite="osa_user_large_group", $legendText="Project Mantainers", $bgColor=Gray)
-AddPersonTag("admin", $sprite="osa_user_audit,color=yellow", $legendSprite="osa_user_audit,scale=0.25,color=yellow", $legendText="Repository Admins", $bgColor=Gray)
-AddPersonTag("repository_users", $sprite="osa_user_green_developer", $legendSprite="osa_user_green_developer,scale=0.25,color=yellow", $legendText="Repository Users", $bgColor=Gray)
 
 AddContainerTag("webui", $sprite="application_server", $legendText="Web UI Interface", $bgColor=Gray)
 AddContainerTag("key_service", $sprite="lock_with_key_security", $legendText="Key Service", $bgColor=Gray)
@@ -41,8 +34,8 @@ AddRelTag("sync", $textColor="$ARROW_COLOR", $lineColor="$ARROW_COLOR", $lineSty
 
 Boundary(tenant, "Tenant"){
 
-    Person(users_1, "Users", $tags="project_mantainers") #Grey
-    Person(users_2, "Users", $tags="project_mantainers") #Grey
+    Person(users_1, "Users") #Grey
+    Person(users_2, "Users") #Grey
 
     Container(automation, "Automations", "CI/CD, Artfact Systems, ...", $tags="ci_cd") #Grey
     Container(queue, "Broker Federation", "Broker Cluster", $tags="queue")  #Grey

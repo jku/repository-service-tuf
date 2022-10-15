@@ -7,3 +7,6 @@
 [submodule "repository-service-tuf-cli"]
 	path = repository-service-tuf-cli
 	url = https://github.com/vmware/repository-service-tuf-cli.git
+[submodule "docs/diagrams/C4-PlantUML"]
+	path = docs/diagrams/C4-PlantUML
+	url = https://github.com/plantuml-stdlib/C4-PlantUML.git

@@ -1,9 +1,6 @@
 @startuml 1_1_rstuf.puml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include ./C4-PlantUML/C4_Container.puml
 
-!define osaPuml https://raw.githubusercontent.com/Crashedmind/PlantUML-opensecurityarchitecture2-icons/master
-!include osaPuml/Common.puml
-!include osaPuml/User/all.puml
 !include <office/Servers/file_server>
 !include <office/Concepts/service_application>
 
@@ -29,7 +26,6 @@ FELbWiw7HhlbXj5fQvNsWGCFURegSqfXpt3OeYBfH9LYGOAeoWa_BcUCyVtolZ0sUQWpnJFglxRvm6mi
 ZnvKXOMsIpaheiQ26iWPsfmet2hAZI2jbfgS4xJIh2BiNc4bkPwaKKA88OLwrxZFwMRmURmBiBdSyJVK5V-7X-EJGFsZycRu2rwyUF7YnOiNNm
 }
 
-AddPersonTag("users", $sprite="osa_user_large_group", $legendText="aggregated user")
 
 AddRelTag("validate", $textColor="orange", $lineColor="Blue", $lineStyle = DashedLine())
 AddRelTag("download", $textColor="blue", $lineColor="Blue")
@@ -40,8 +36,8 @@ AddContainerTag("tuf_updater", $sprite="service_application,scale=0.5,color=#000
 AddContainerTag("ci_cd", $sprite="service_application,scale=1.4", $legendText="CI/CD")
 AddContainerTag("rstuf", $sprite="rstuf,scale=1.0", $legendText="Repository Service for TUF ")
 
-Person(users, "Users", $tags="users") #Green
-Person(developers, "Developers", $tags="users") #Grey
+Person(users, "Users") #Green
+Person(developers, "Developers") #Grey
 
 System_Boundary(build_systems, "Build System") {
     Container(rstuf, "Signed Metadata", "TUF Server", $tags=rstuf)
